@@ -10,13 +10,16 @@ import About from "./components/About";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
 import Menu from "./components/Menu";
+import Counter from "./components/Counter";
+
+import { store } from './redux/store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
     <div className="App">
-      <Container maxWidth="sm" sx={{
-        mt:5
-      }}>
+<Provider store={store}>
+      <Container maxWidth="sm" sx={{mt:5}}>
 <BrowserRouter>
 <Box sx={{mb:2}}>
      <Menu />
@@ -26,12 +29,14 @@ function App() {
      <Route exact path="about" element={<About />} />
      <Route exact path="clients" element={<Clients />} />
      <Route exact path="contact" element={<Contact />} />
+     <Route exact path="counter" element={<Counter />} />
 
     </Routes>
   
 
 </BrowserRouter>
 </Container>
+</Provider>,
     </div>
   );
 }
