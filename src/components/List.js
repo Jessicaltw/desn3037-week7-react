@@ -15,7 +15,7 @@ export default function BasicList() {
     const field = useSelector((state) => state.list.field)
     const items = useSelector((state) => state.list.items)
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
 function add(){
     dispatch(reducerAdd(field))
@@ -30,11 +30,10 @@ function define(value){
   return (
     <Box sx={{ width: '100%', maxWidth: "100%", bgcolor: 'background.paper' }}>
 
-        <TextField id="Name" label="Outlined" value={field} variant="outlined"sx={{ width: '100%', marginBottom: 2}} onChange={(e) => define(e.target.value)}/>
-        <Button variant="contained" sx={{ width: '100%', marginBottom: 2}} onClick={(e) => {add()}} >
-            Add
-        </Button>
-
+    <TextField label="Name" variant="outlined" value={field} sx={{ width: "100%", marginBottom: 1 }} onChange={(e) => define(e.target.value)} />
+    <Button variant="contained" sx={{ width: "100%", marginBottom: 1 }} onClick={(e) => { add() }}>
+        Add
+    </Button>
 
       <Divider />
       <nav aria-label="secondary mailbox folders">
@@ -48,9 +47,6 @@ function define(value){
                </ListItemButton>
              </ListItem>
             )}
-
-       
-        
 
         </List>
 
