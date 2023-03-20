@@ -1,12 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-    field: "Lorem ipsum",
+let initialState = {
+    field: "",
     items: [
-        "Hello",
-        "Ciao"  
+ 
     ]
 }
+
+const json = window.localStorage.getItem("payload");
+if (json !== null && json !== "") {
+    const payload = JSON.parse(json);
+    initialState.field = payload.list.field;
+    initialState.items = payload.list.items;
+}
+
 
 export const listSlice = createSlice({
   name: 'list',
